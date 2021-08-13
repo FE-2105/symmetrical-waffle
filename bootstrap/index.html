@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- Подгрузили все классы и стили из фреймворка bootstrap -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Подгрузили свои стили ниже Bootstrap чтоб он их не перебивал -->
+    <title>Document</title>
+</head>
+<!-- 
+    Префиксы в зависимости от ширины экрана
+
+    xl =  >= 1200px
+    lg =  >= 992px
+    md =  >= 768px
+    sm =  >= 576px
+    -  =  < 576px 
+
+
+    Если не прописан префикс выше, то берет самый большой из прописанных
+
+    т.е если нет lg или xl, но есть md, то он будет применятся от 768px и выше
+
+    Если существует ТОЛЬКО lg (к примеру), то для ширины меньше 992px не будут применены никакие стили
+ -->
+<body style="padding-top: 25px;">
+    <div class="container"> 
+        <!-- Зарезервированный класс для ограничения пространства -->
+        <div class="row">
+            <!-- Линия, занимающая 12 условных колонок -->
+            <div class="col-md-4">hi 1</div>
+            <!-- 
+                col - колонка 
+                md - разрешение экрана
+                4 - количество занимаемого места в колонках
+            -->
+            <div class="col-md-4">hi 2</div>
+            <div class="col-md-4">hi 3</div>
+        </div>
+       
+        <div class="row align-items-center">
+            <!-- 
+                justify-content-center = навешивает justify-content: center !important;
+                align-items-center     = навешивает align-items: center !important;
+                align-self-start       = навешивает align-self: start !important;
+             -->
+            <!-- 
+                Каждый блок занимает
+
+                col-md-4 = на ширине 768 и выше - 4 колонки из 12 (1/3)
+                col-sm-6 = на ширине 576 и выше - 6 колонок из 12 (1/2) - остальные переносятся на следующую строку
+                col-12   = на ширине меньше 576 - 12 колонок из 12 (100%)
+             -->
+            <div class="text-center col-md-4 col-sm-6 col-12">1</div>
+            <div class="text-center col-md-4 col-sm-6 col-12">2</div>
+            <div class="text-center col-md-4 col-sm-6 col-12">3</div>
+        </div>
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-9">
+                Level 1: .col-sm-9
+                <div class="row">
+                  <div class="col-8 col-sm-6">
+                    Level 2: .col-8 .col-sm-6
+                  </div>
+                  <div class="col-4 col-sm-6">
+                    Level 2: .col-4 .col-sm-6
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-light">Light</button>
+                <button type="button" class="btn btn-dark">Dark</button>
+            </div>
+            <div class="col-12">
+                <button 
+                    class="btn btn-dark" 
+                    type="button" 
+                    data-toggle="collapse" 
+                    data-target="#collapsed"
+                    aria-expanded="false"
+                    aria-controls="collapsed"
+                >
+                    Toggle text
+                </button>
+            </div>
+            <div class="col-12 collapse" id="collapsed">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Earum non veniam at, eum maiores laboriosam optio rem unde 
+                aliquam ipsum architecto nobis quisquam deleniti qui amet 
+                cum blanditiis minus ut!
+            </div>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a 
+            class="btn btn-success dropdown-toggle"
+            href="#"
+            role="button"
+            id="dropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+        >
+            Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">1</a>
+            <a class="dropdown-item" href="#">2</a>
+            <a class="dropdown-item" href="#">3</a>
+        </div>
+    </div>
+    <button
+        class="btn btn-danger"
+        data-toggle="modal"
+        data-target="#our-modal-block"
+    >
+        Show Modal
+    </button>
+    <div id="our-modal-block" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Привет) Вот и поп-ап
+                </div>
+                <div class="modal-body">
+                    И даже можно прописать какой-то текст, который будет ясен пользователю
+                    
+                </div>
+                <div class="modal-footer">
+                    <button
+                        class="btn btn-info"
+                        data-dismiss="modal"
+                    >
+                        Закрыть!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="our-new-tabs-container">
+        <ul class="nav nav-pills" id="pills-tab">
+            <li class="nav-item">
+                <a
+                    class="nav-link active"
+                    id="pills-home-tab"
+                    data-toggle="pill"
+                    href="#pills-home"
+                >
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a
+                    class="nav-link"
+                    id="pills-profile-tab"
+                    data-toggle="pill"
+                    href="#pills-profile"
+                >
+                    Profile
+                </a>
+            </li>
+            <li class="nav-item">
+                <a
+                    class="nav-link"
+                    id="pills-contact-tab"
+                    data-toggle="pill"
+                    href="#pills-contact"
+                >
+                    Contact
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div
+                class="tab-pane fade show active"
+                id="pills-home"
+                role="tabpanel"
+                aria-labelledby="pills-home-tab"
+            >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, incidunt.
+            </div>
+            <div
+                class="tab-pane fade"
+                id="pills-profile"
+                role="tabpanel"
+                aria-labelledby="pills-profile-tab"
+            >
+                In facilis quod error sunt id, laudantium suscipit ipsum at voluptate consectetur!
+            </div>
+            <div
+                class="tab-pane fade"
+                id="pills-contact"
+                role="tabpanel"
+                aria-labelledby="pills-contact-tab"
+            >
+                Iure quos ullam eveniet culpa tempore dicta maxime quas provident sequi vel!
+            </div>
+        </div>
+    </div>
+    <img
+        src="http://www.wincore.ru/uploads/posts/2018-07/1531464926_01_gettyimages_108226626_resized.jpg"
+        class="img-fluid"
+        alt="Responsive image"
+    >
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Jquery до Bootstrap. Он его использует -->
+    <script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <!-- Сам Bootstrap -->
+    <script src="./js/script.js"></script>
+    <!-- Наш скрипт самый последний чтоб использовать всё, что добавили до этого -->
+</body>
+</html>
+
+ <!-- 
+    col-sm       = На ширине больше 575px умещает все блоки с таким классом в одну строку
+    col-md-auto  = На ширине больше 767px размер соответствует контенту (inline)
+    w-100        = Переносит последующие колонки на следующую строку (блок со 100% ширины)
+    d-none       = Навешивает display: none;
+    d-md-block   = Выше 767px навешивает display: block;
+    offset-md-4  = Выше 767px отталкивается слева на 4 колонки
+    ml-auto      = Автоматически оттолкнутся от соседних элементов
+-->
