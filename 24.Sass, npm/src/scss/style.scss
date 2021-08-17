@@ -1,0 +1,81 @@
+@import '../reset.css'; // Подключили файл reset.css из папки в SCSS
+
+$blue: blue;
+$w: #FFF;
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #000;
+    span{
+        color: white
+    }
+    p{
+        font-size: 20px;
+        color: $blue;
+    }
+}
+
+// & - это предыдущий селектор
+.btn{
+    color: $w;
+    border: 1px solid $w;
+    &.active{ // .btn.active
+        color: red;
+        border-color: red;
+    }
+}
+
+nav{
+    font-size: 15px;
+    ul{
+        color: white;
+        & > li{  // & = nav ul // & > li = nav ul > li
+            font-weight: bold;
+        }
+    }
+}
+
+.mobile-menu{
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &__btn{ // & = .mobile-menu // &__btn = .mobile-menu__btn
+        // __ - это просто правила хорошего тона. 
+        // Они показывают разработчику, что этот класс вложенный, а не прописан напрямую 
+        font-size: 10px
+    }
+}
+.body{
+    &__block{
+        &__main{
+            &__nav{
+                &__menu{ //.body__block__main__nav__menu
+                    color: white
+                }
+            }
+        }
+    }
+}
+
+
+%box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+}
+
+.red-container{
+    @extend %box;
+    border-color: red;
+}
+.blue-container{
+    @extend %box;
+    border-color: blue;
+}
+.green-container{
+    @extend %box;
+    border-color: green;
+}
